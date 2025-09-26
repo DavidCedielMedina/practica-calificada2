@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 
 export default function Main() {
   const [imageUrl, setImageUrl] = useState([]);
-  async function fetData() {
+  async function fetData(props) {
     try {
       const response = await fetch(
-        "https://api.pexels.com/v1/search?query=nature&per_page=40",
+        `https://api.pexels.com/v1/search?query=animals&per_page=40`,
         {
           headers: {
             Authorization: import.meta.env.VITE_API_KEY,
           },
-        }
+        },
+        console.log(import.meta.env.VITE_API_KEY)
       );
       const data = await response.json();
       console.log(data);

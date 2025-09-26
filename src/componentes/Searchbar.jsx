@@ -1,4 +1,5 @@
 import React from "react";
+import Main from "./Main";
 
 export default function Searchbar() {
   return (
@@ -34,16 +35,28 @@ export default function Searchbar() {
         </button>
       </div>
       <div className="flex flex-col sm:flex-row gap-3 p-2 justify-center items-center">
-        <button className="bg-blue-900 text-white rounded-[12px] py-2 px-4 lg:hover:scale-x-110 lg:sacle-y-105 transition-transform duration-300">
+        <button
+          onClick={() => Main("nature")}
+          className="bg-blue-900 text-white rounded-[12px] py-2 px-4 lg:hover:scale-x-110 lg:sacle-y-105 transition-transform duration-300"
+        >
           Opcion 1
         </button>
-        <button className="bg-blue-900 text-white rounded-[12px] py-2 px-4 lg:hover:scale-x-110 lg:sacle-y-105 transition-transform duration-300">
+        <button
+          onClick={() => Main("animals")}
+          className="bg-blue-900 text-white rounded-[12px] py-2 px-4 lg:hover:scale-x-110 lg:sacle-y-105 transition-transform duration-300"
+        >
           Opcion 2
         </button>
-        <button className="bg-blue-900 text-white rounded-[12px] py-2 px-4 lg:hover:scale-x-110 lg:sacle-y-105 transition-transform duration-300">
+        <button
+          onClick={() => Main("technology")}
+          className="bg-blue-900 text-white rounded-[12px] py-2 px-4 lg:hover:scale-x-110 lg:sacle-y-105 transition-transform duration-300"
+        >
           Opcion 3
         </button>
-        <button className="bg-blue-900 text-white rounded-[12px] py-2 px-4 lg:hover:scale-x-110 lg:sacle-y-105 transition-transform duration-300">
+        <button
+          onClick={() => Main("food")}
+          className="bg-blue-900 text-white rounded-[12px] py-2 px-4 lg:hover:scale-x-110 lg:sacle-y-105 transition-transform duration-300"
+        >
           Opcion 4
         </button>
       </div>
