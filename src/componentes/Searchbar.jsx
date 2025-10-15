@@ -1,7 +1,12 @@
-import React from "react";
-import Main from "./Main";
+import React, { useState } from "react";
 
-export default function Searchbar() {
+export default function Searchbar({ setQuery }) {
+  const [search, setSearch] = useState("");
+  const handleSearch = () => {
+    if (search.trim() !== "") {
+      setQuery(search);
+    }
+  };
   return (
     <div
       style={{ fontFamily: `"Lobster Two", sans-serif` }}
@@ -15,8 +20,13 @@ export default function Searchbar() {
           className="bg-gray-200 px-4 py-2 rounded-l-2xl active:ring-0"
           type="text"
           placeholder="Search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
-        <button className="bg-blue-950 p-2 rounded-r-2xl flex hover:scale-105 ">
+        <button
+          onClick={handleSearch}
+          className="bg-blue-950 p-2 rounded-r-2xl flex hover:scale-105 "
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -36,28 +46,36 @@ export default function Searchbar() {
       </div>
       <div className="flex flex-col sm:flex-row gap-3 p-2 justify-center items-center">
         <button
-          onClick={() => Main("nature")}
+          onClick={() => {
+            setQuery("nature");
+          }}
           className="bg-blue-900 text-white rounded-[12px] py-2 px-4 lg:hover:scale-x-110 lg:sacle-y-105 transition-transform duration-300"
         >
-          Opcion 1
+          Nature
         </button>
         <button
-          onClick={() => Main("animals")}
+          onClick={() => {
+            setQuery("animals");
+          }}
           className="bg-blue-900 text-white rounded-[12px] py-2 px-4 lg:hover:scale-x-110 lg:sacle-y-105 transition-transform duration-300"
         >
-          Opcion 2
+          Animals
         </button>
         <button
-          onClick={() => Main("technology")}
+          onClick={() => {
+            setQuery("technology");
+          }}
           className="bg-blue-900 text-white rounded-[12px] py-2 px-4 lg:hover:scale-x-110 lg:sacle-y-105 transition-transform duration-300"
         >
-          Opcion 3
+          Technology
         </button>
         <button
-          onClick={() => Main("food")}
+          onClick={() => {
+            setQuery("food");
+          }}
           className="bg-blue-900 text-white rounded-[12px] py-2 px-4 lg:hover:scale-x-110 lg:sacle-y-105 transition-transform duration-300"
         >
-          Opcion 4
+          Food
         </button>
       </div>
     </div>

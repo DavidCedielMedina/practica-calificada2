@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
 
-export default function Main() {
+export default function Main({ query }) {
   const [imageUrl, setImageUrl] = useState([]);
-  async function fetData(props) {
+
+  async function fetData() {
     try {
       const response = await fetch(
-        `https://api.pexels.com/v1/search?query=animals&per_page=40`,
+        `https://api.pexels.com/v1/search?query=${query}&per_page=40`,
         {
           headers: {
             Authorization: import.meta.env.VITE_API_KEY,
           },
-        },
-        console.log(import.meta.env.VITE_API_KEY)
+        }
       );
       const data = await response.json();
-      console.log(data);
       setImageUrl(data.photos);
     } catch (error) {
       console.error(error);
@@ -22,7 +21,7 @@ export default function Main() {
   }
   useEffect(() => {
     fetData();
-  }, []);
+  }, [query]);
   return (
     <div className="flex flex-col gap-3 p-3 justify-center items-center w-full">
       <h1
