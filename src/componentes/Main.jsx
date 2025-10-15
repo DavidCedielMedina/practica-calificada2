@@ -34,9 +34,9 @@ export default function Main({ query }) {
         {imageUrl.map((photo) => (
           <img
             className="h-[148px] w-[235px] object-cover lg:hover:scale-95 transition-transform duration-500 rounded-[10px]"
-            key={photo.id}
-            src={photo.src.original}
-            alt={photo.alt}
+            key={photo?.id}
+            src={photo?.src.original}
+            alt={photo?.alt}
           />
         ))}
       </div>
